@@ -1,29 +1,15 @@
+use crate::vehicles::sedan::create_sedan;
+pub mod vehicles;
+
 fn main() {
     println!("\n\tWelcome to CarLot!");
 
-    let car1 = Vehicle {
-        brand: String::from("Mazda"),
-        model: String::from("CX-30"),
-        year: String::from("2022"),
-        miles: 16_102,
-    };
+    let car1 = create_sedan(
+        String::from("Ford"),
+        String::from("Mustang"),
+        String::from("1995"),
+        56_987,
+    );
 
     car1.display();
-}
-
-#[derive(Debug)]
-struct Vehicle {
-    brand: String,
-    model: String,
-    year: String,
-    miles: u32,
-}
-
-impl Vehicle {
-    fn display(&self) {
-        println!(
-            "Brand: {}\nModel: {}\nYear: {}\nMileage: {}",
-            self.brand, self.model, self.year, self.miles
-        );
-    }
 }
